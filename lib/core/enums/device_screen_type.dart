@@ -1,6 +1,8 @@
 enum DeviceScreenType {
-  mobile, tablet, desktop;
+  mobile, tablet, desktop
+}
 
+extension DeviceScreenTypeExtension on DeviceScreenType {
   isMobile() => this == DeviceScreenType.mobile;
   isDesktop() => this == DeviceScreenType.desktop;
   isTablet() => this == DeviceScreenType.tablet;

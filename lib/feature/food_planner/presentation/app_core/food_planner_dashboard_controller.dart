@@ -1,8 +1,12 @@
-import 'package:web_core/feature/food_planner/presentation/dashboard/food_planner_dashboard_state.dart';
 
 import '../../../../core/abstractions/base_controller.dart';
+import 'food_planner_dashboard_state.dart';
 
 class FoodPlannerDashboardController extends BaseController<FoodPlannerDashboardState> {
+
+  final FoodPlannerDashboardState initState;
+
+  FoodPlannerDashboardController({required this.initState});
 
   @override
   Future<void> initController() async {
@@ -10,7 +14,7 @@ class FoodPlannerDashboardController extends BaseController<FoodPlannerDashboard
   }
 
   @override
-  Future<FoodPlannerDashboardState> initViewState() async => FoodPlannerDashboardState.home;
+  Future<FoodPlannerDashboardState> initViewState() async => initState;
 
   void handleMenuItemTapped(int value) {
     FoodPlannerDashboardState? _newState = getDashboardMenuItemFromIndex(value);

@@ -45,7 +45,7 @@ abstract class BaseView<T extends BaseController> extends GetView<T> {
 
 
 DeviceScreenType getDeviceScreenType(BoxConstraints constraints) {
-  if (constraints.maxWidth < 600) {
+  if (constraints.maxWidth < 500) {
     return DeviceScreenType.mobile;
   } else if (constraints.maxWidth < 1200) {
     return DeviceScreenType.tablet;

@@ -1,21 +1,30 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
-import 'package:web_core/feature/food_planner/presentation/dashboard/views/food_planner_dashboard_about_view.dart';
-import 'package:web_core/feature/food_planner/presentation/dashboard/views/food_planner_dashboard_planner_view.dart';
-import 'package:web_core/feature/food_planner/presentation/dashboard/views/food_planner_dashboard_user_view.dart';
+
+import '../shared/food_planner_page_with_menu.dart';
 import 'food_planner_dashboard_controller.dart';
 import 'food_planner_dashboard_state.dart';
-import 'views/food_planner_dashboard_home_view.dart';
-import '../templates/food_planner_page_menu_template.dart';
+import 'views/about/food_planner_dashboard_about_view.dart';
+import 'views/about/food_planner_dashboard_about_view_controller.dart';
+import 'views/home/food_planner_dashboard_home_view.dart';
+import 'views/home/food_planner_dashboard_home_view_controller.dart';
+import 'views/planner/food_planner_dashboard_planner_view.dart';
+import 'views/planner/food_planner_dashboard_planner_view_controller.dart';
+import 'views/user/food_planner_dashboard_user_view.dart';
+import 'views/user/food_planner_dashboard_user_view_controller.dart';
 
 class FoodPlannerDashboardPage extends FoodPlannerPageMenuTemplate<
     FoodPlannerDashboardController, FoodPlannerDashboardState> {
-  const FoodPlannerDashboardPage({Key? key, required String title})
+  final FoodPlannerDashboardState initState;
+
+  const FoodPlannerDashboardPage(
+      {Key? key,
+      required String title,
+      this.initState = FoodPlannerDashboardState.home})
       : super(title: title, key: key);
 
   @override
   FoodPlannerDashboardController createController() =>
-      FoodPlannerDashboardController();
+      FoodPlannerDashboardController(initState: initState);
 
   @override
   List<NavigationPaneItem> buildFooterItems(
@@ -64,13 +73,21 @@ class FoodPlannerDashboardPage extends FoodPlannerPageMenuTemplate<
       FoodPlannerDashboardState viewState, BuildContext context) {
     switch (viewState) {
       case FoodPlannerDashboardState.home:
-        return FoodPlannerDashboardHomeView(builder: () => FoodPlannerDashboardHomeViewController(),);
+        return FoodPlannerDashboardHomeView(
+          builder: () => FoodPlannerDashboardHomeViewController(),
+        );
       case FoodPlannerDashboardState.planner:
-        return FoodPlannerDashboardPlannerView(builder: () => FoodPlannerDashboardPlannerViewController(),);
+        return FoodPlannerDashboardPlannerView(
+          builder: () => FoodPlannerDashboardPlannerViewController(),
+        );
       case FoodPlannerDashboardState.user:
-        return FoodPlannerDashboardUserView(builder: () => FoodPlannerDashboardUserViewController(),);
+        return FoodPlannerDashboardUserView(
+          builder: () => FoodPlannerDashboardUserViewController(),
+        );
       case FoodPlannerDashboardState.about:
-        return FoodPlannerDashboardAboutView(builder: () => FoodPlannerDashboardAboutViewController(),);
+        return FoodPlannerDashboardAboutView(
+          builder: () => FoodPlannerDashboardAboutViewController(),
+        );
     }
   }
 
@@ -80,7 +97,8 @@ class FoodPlannerDashboardPage extends FoodPlannerPageMenuTemplate<
   }
 
   @override
-  onMenuItemChangedCallback(FoodPlannerDashboardController controller, int value) {
+  onMenuItemChangedCallback(
+      FoodPlannerDashboardController controller, int value) {
     controller.handleMenuItemTapped(value);
   }
 }

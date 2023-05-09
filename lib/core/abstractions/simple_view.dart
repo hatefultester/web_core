@@ -10,6 +10,7 @@ abstract class SimpleView<T extends SimpleController> extends GetView<T> {
     Get.lazyPut<T>(builder);
   }
 
+
   Widget buildMobileView(T controller,
       BuildContext context,);
 

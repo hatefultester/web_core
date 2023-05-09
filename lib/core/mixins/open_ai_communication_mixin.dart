@@ -7,16 +7,18 @@ mixin OpenAiCommunicationMixin {
   }
 
   Future<String> openAiRequest(
-      {required String userMessage,
-        required String assistantMessage,
+      {required List<String> userMessages,
+        required List<String> assistantMessages,
         String openAiModel = 'gpt-3.5-turbo',
         double temperature = 0.2}) async {
     final chatCompletions = await OpenAI.instance.chat.create(
       model: openAiModel,
       temperature: temperature,
       messages: [
+        for (var assistantMessage in assistantMessages)
         OpenAIChatCompletionChoiceMessageModel(
             role: OpenAIChatMessageRole.assistant, content: assistantMessage),
+        for (var userMessage in userMessages)
         OpenAIChatCompletionChoiceMessageModel(
             role: OpenAIChatMessageRole.user, content: userMessage),
       ],

@@ -1,6 +1,8 @@
+
 import 'package:get/get.dart';
+
 import 'food_planner_app_navigator.dart';
-import 'presentation/dashboard/food_planner_dashboard_page.dart';
+import 'presentation/app_core/food_planner_dashboard_page.dart';
 
 List<GetPage> foodPlannerAppPages = [
   GetPage(

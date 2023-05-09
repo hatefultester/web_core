@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../core/abstractions/simple_controller.dart';
-import '../../../../core/abstractions/simple_view.dart';
-import '../../../../core/enums/device_screen_type.dart';
-import '../../../../core/presentation/wrappers/custom_opacity_animation_wrapper.dart';
+import '../../../../../core/abstractions/simple_controller.dart';
+import '../../../../../core/abstractions/simple_view.dart';
+import '../../../../../core/enums/device_screen_type.dart';
+import '../../../../../core/presentation/wrappers/custom_opacity_animation_wrapper.dart';
 
 abstract class FoodPlannerViewTemplate<T extends SimpleController>
     extends SimpleView<T> {

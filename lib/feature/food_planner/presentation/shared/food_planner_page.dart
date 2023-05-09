@@ -1,8 +1,8 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import '../../../../core/abstractions/base_controller.dart';
 import '../../../../core/abstractions/base_page.dart';
-import '../views/food_planner_error_view.dart';
-import '../views/food_planner_loading_view.dart';
+import 'views/food_planner_error_view.dart';
+import 'views/food_planner_loading_view.dart';
 
 abstract class FoodPlannerPageBaseTemplate<T extends BaseController, V extends Enum> extends BasePage<T, V> {
 
