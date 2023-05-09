@@ -29,13 +29,3 @@ enum DeviceScreenType {
     }
   }
 }
-
-DeviceScreenType getDeviceScreenType(BoxConstraints constraints) {
-  if (constraints.maxWidth < 600) {
-    return DeviceScreenType.mobile;
-  } else if (constraints.maxWidth < 1200) {
-    return DeviceScreenType.tablet;
-  } else {
-    return DeviceScreenType.desktop;
-  }
-}

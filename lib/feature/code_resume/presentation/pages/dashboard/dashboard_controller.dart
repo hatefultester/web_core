@@ -1,8 +1,5 @@
 import '../../../../../core/abstractions/base_controller.dart';
-
-enum DashboardControllerViewState {
-  basic,
-}
+import 'dashboard_controller_view_state.dart';
 
 class DashboardController extends BaseController<DashboardControllerViewState> {
   @override

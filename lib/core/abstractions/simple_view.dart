@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:web_core/core/abstractions/simple_controller.dart';
 import '../enums/device_screen_type.dart';
-import 'base_controller.dart';
 
-abstract class BaseView<T extends BaseController> extends GetView<T> {
+abstract class SimpleView<T extends SimpleController> extends GetView<T> {
 
-  const BaseView(
-      {Key? key,})
-      : super(key: key);
+  SimpleView(
+      {Key? key, required InstanceBuilderCallback<T> builder,}) : super(key: key) {
+    Get.lazyPut<T>(builder);
+  }
 
   Widget buildMobileView(T controller,
       BuildContext context,);
