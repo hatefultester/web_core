@@ -4,13 +4,9 @@ import '../shared/food_planner_page_with_menu.dart';
 import 'food_planner_dashboard_controller.dart';
 import 'food_planner_dashboard_state.dart';
 import 'views/about/food_planner_dashboard_about_view.dart';
-import 'views/about/food_planner_dashboard_about_view_controller.dart';
 import 'views/home/food_planner_dashboard_home_view.dart';
-import 'views/home/food_planner_dashboard_home_view_controller.dart';
 import 'views/planner/food_planner_dashboard_planner_view.dart';
-import 'views/planner/food_planner_dashboard_planner_view_controller.dart';
 import 'views/user/food_planner_dashboard_user_view.dart';
-import 'views/user/food_planner_dashboard_user_view_controller.dart';
 
 class FoodPlannerDashboardPage extends FoodPlannerPageMenuTemplate<
     FoodPlannerDashboardController, FoodPlannerDashboardState> {
@@ -73,21 +69,13 @@ class FoodPlannerDashboardPage extends FoodPlannerPageMenuTemplate<
       FoodPlannerDashboardState viewState, BuildContext context) {
     switch (viewState) {
       case FoodPlannerDashboardState.home:
-        return FoodPlannerDashboardHomeView(
-          builder: () => FoodPlannerDashboardHomeViewController(),
-        );
+        return const FoodPlannerDashboardHomeView();
       case FoodPlannerDashboardState.planner:
-        return FoodPlannerDashboardPlannerView(
-          builder: () => FoodPlannerDashboardPlannerViewController(),
-        );
+        return const FoodPlannerDashboardPlannerView();
       case FoodPlannerDashboardState.user:
-        return FoodPlannerDashboardUserView(
-          builder: () => FoodPlannerDashboardUserViewController(),
-        );
+        return const FoodPlannerDashboardUserView();
       case FoodPlannerDashboardState.about:
-        return FoodPlannerDashboardAboutView(
-          builder: () => FoodPlannerDashboardAboutViewController(),
-        );
+        return const FoodPlannerDashboardAboutView();
     }
   }
 

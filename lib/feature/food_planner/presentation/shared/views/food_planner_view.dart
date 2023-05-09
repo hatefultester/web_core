@@ -13,13 +13,12 @@ abstract class FoodPlannerViewTemplate<T extends SimpleController>
 
   final bool withOpacityEffect;
 
-  FoodPlannerViewTemplate({
+  const FoodPlannerViewTemplate({
     Key? key,
-    required InstanceBuilderCallback<T> builder,
     this.scrollable = false,
     this.centered = false,
     this.withOpacityEffect = false,
-  }) : super(key: key, builder: builder);
+  }) : super(key: key);
 
   @override
   Widget buildDesktopView(T controller, BuildContext context) {

@@ -7,13 +7,16 @@ import 'food_planner_dashboard_user_view_controller.dart';
 class FoodPlannerDashboardUserView
     extends FoodPlannerViewTemplate<FoodPlannerDashboardUserViewController> {
 
-  FoodPlannerDashboardUserView({Key? key, required InstanceBuilderCallback<FoodPlannerDashboardUserViewController> builder}) : super(key: key, builder: builder);
+  const FoodPlannerDashboardUserView({Key? key}) : super(key: key);
 
   @override
   List<Widget> buildView(FoodPlannerDashboardUserViewController controller,
       DeviceScreenType screenType, BuildContext context) {
     return [
-      Text('This is User view')
+
     ];
   }
+
+  @override
+  FoodPlannerDashboardUserViewController builder() => FoodPlannerDashboardUserViewController();
 }

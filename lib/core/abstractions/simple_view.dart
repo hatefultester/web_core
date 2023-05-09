@@ -3,13 +3,12 @@ import 'package:get/get.dart';
 import 'package:web_core/core/abstractions/simple_controller.dart';
 import '../enums/device_screen_type.dart';
 
-abstract class SimpleView<T extends SimpleController> extends GetView<T> {
+abstract class SimpleView<T extends SimpleController> extends StatelessWidget {
 
-  SimpleView(
-      {Key? key, required InstanceBuilderCallback<T> builder,}) : super(key: key) {
-    Get.lazyPut<T>(builder);
-  }
+  const SimpleView(
+      {Key? key,}) : super(key: key);
 
+  T builder();
 
   Widget buildMobileView(T controller,
       BuildContext context,);
@@ -22,25 +21,28 @@ abstract class SimpleView<T extends SimpleController> extends GetView<T> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        DeviceScreenType screenType = getDeviceScreenType(constraints);
+    return GetBuilder<T>(
+      init: builder(),
+      builder: (T controller) { return  LayoutBuilder(
+        builder: (context, constraints) {
+          DeviceScreenType screenType = getDeviceScreenType(constraints);
 
-        controller.setDeviceScreenType(screenType);
+          controller.setDeviceScreenType(screenType);
 
 
-        switch (screenType) {
-          case DeviceScreenType.mobile:
-            Widget mobileView = buildMobileView(controller, context);
-            return mobileView;
-          case DeviceScreenType.tablet:
-            Widget tabletView = buildTabletView(controller, context);
-            return tabletView;
-          case DeviceScreenType.desktop:
-            Widget desktopView = buildDesktopView(controller, context);
-            return desktopView;
-        }
-      },
+          switch (screenType) {
+            case DeviceScreenType.mobile:
+              Widget mobileView = buildMobileView(controller, context);
+              return mobileView;
+            case DeviceScreenType.tablet:
+              Widget tabletView = buildTabletView(controller, context);
+              return tabletView;
+            case DeviceScreenType.desktop:
+              Widget desktopView = buildDesktopView(controller, context);
+              return desktopView;
+          }
+        },
+      ); }
     );
   }
 }

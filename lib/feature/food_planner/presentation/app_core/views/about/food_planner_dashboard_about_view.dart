@@ -7,7 +7,7 @@ import 'food_planner_dashboard_about_view_controller.dart';
 class FoodPlannerDashboardAboutView
     extends FoodPlannerViewTemplate<FoodPlannerDashboardAboutViewController> {
 
-  FoodPlannerDashboardAboutView({Key? key, required InstanceBuilderCallback<FoodPlannerDashboardAboutViewController> builder}) : super(key: key, builder: builder);
+  const FoodPlannerDashboardAboutView({Key? key}) : super(key: key);
 
   @override
   List<Widget> buildView(FoodPlannerDashboardAboutViewController controller,
@@ -16,4 +16,7 @@ class FoodPlannerDashboardAboutView
       Text('This is About view')
     ];
   }
+
+  @override
+  FoodPlannerDashboardAboutViewController builder() => FoodPlannerDashboardAboutViewController();
 }

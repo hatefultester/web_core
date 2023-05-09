@@ -7,12 +7,10 @@ import 'food_planner_dashboard_planner_view_controller.dart';
 
 class FoodPlannerDashboardPlannerView
     extends FoodPlannerViewTemplate<FoodPlannerDashboardPlannerViewController> {
-  FoodPlannerDashboardPlannerView(
-      {Key? key,
-      required InstanceBuilderCallback<
-              FoodPlannerDashboardPlannerViewController>
-          builder})
-      : super(key: key, builder: builder);
+
+  const FoodPlannerDashboardPlannerView(
+      {Key? key})
+      : super(key: key);
 
   @override
   List<Widget> buildView(FoodPlannerDashboardPlannerViewController controller,
@@ -53,6 +51,12 @@ class FoodPlannerDashboardPlannerView
           ),
         ],
       ),
+      HyperlinkButton(child: Text('Generate'), onPressed: () {
+        controller.handleMealPlanGeneratedButtonTapped();
+      })
     ];
   }
+
+  @override
+  FoodPlannerDashboardPlannerViewController builder() => FoodPlannerDashboardPlannerViewController();
 }

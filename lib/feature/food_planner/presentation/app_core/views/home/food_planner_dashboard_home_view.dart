@@ -9,7 +9,7 @@ import 'food_planner_dashboard_home_view_controller.dart';
 class FoodPlannerDashboardHomeView
     extends FoodPlannerViewTemplate<FoodPlannerDashboardHomeViewController> {
 
-  FoodPlannerDashboardHomeView({Key? key, required InstanceBuilderCallback<FoodPlannerDashboardHomeViewController> builder}) : super(key: key, builder: builder);
+  const FoodPlannerDashboardHomeView({Key? key}) : super(key: key);
 
   @override
   List<Widget> buildView(FoodPlannerDashboardHomeViewController controller,
@@ -18,4 +18,7 @@ class FoodPlannerDashboardHomeView
       Text('This is Home view')
     ];
   }
+
+  @override
+  FoodPlannerDashboardHomeViewController builder() => FoodPlannerDashboardHomeViewController();
 }

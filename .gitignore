@@ -32,6 +32,8 @@ migrate_working_dir/
 .pub/
 /build/
 
+/lib/feature/food_planner/data/secrets.dart
+
 # Symbolication related
 app.*.symbols
 
