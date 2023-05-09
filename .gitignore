@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 
-/lib/feature/food_planner/data/secrets.dart
+/lib/feature/kinetic_hive/data/secrets.dart
 
 # Symbolication related
 app.*.symbols

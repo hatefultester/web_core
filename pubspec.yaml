@@ -36,3 +36,4 @@ flutter:
 
   assets:
     - assets/fonts/NotoSans-Regular.ttf
+    - assets/images/kh/ #assets for kinetic hive project

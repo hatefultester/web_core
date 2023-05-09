@@ -1,0 +1,5 @@
+
+enum KhDietaryPlanType {
+  weekPlan,
+  threeDayPlan,
+}
