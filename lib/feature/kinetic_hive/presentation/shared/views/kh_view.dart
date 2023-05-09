@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../../core/abstractions/simple_controller.dart';
 import '../../../../../core/abstractions/simple_view.dart';
 import '../../../../../core/enums/device_screen_type.dart';
@@ -77,6 +77,10 @@ abstract class KhViewTemplate<T extends SimpleController>
         children: buildView(controller, screenType, context),
       ),
     );
+
+    if (kIsWeb) {
+      content = SelectionArea(child: content);
+    }
 
     if (scrollable) {
       content = SingleChildScrollView(child: content);

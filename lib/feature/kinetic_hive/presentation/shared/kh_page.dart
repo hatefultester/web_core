@@ -14,6 +14,17 @@ abstract class KhBaseTemplate<T extends BaseController, V extends Enum> extends 
   Widget build(BuildContext context) {
     return NavigationView(
       appBar: NavigationAppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            width: 80,
+            height: 80,
+            child: Image.asset(
+              'assets/images/kh/kh_app_logo.png'
+            ),
+          ),
+        ),
+        height: 100,
         title: Text(title),
         automaticallyImplyLeading: false,
       ),

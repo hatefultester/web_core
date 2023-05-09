@@ -1,4 +1,5 @@
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../../../../../../core/enums/device_screen_type.dart';
 import '../../../../data/dto/kh_article_dto.dart';
@@ -12,29 +13,69 @@ class KhHomeView extends KhViewTemplate<KhHomeViewController> {
   List<Widget> buildView(KhHomeViewController controller,
       DeviceScreenType screenType, BuildContext context) {
     return [
+      // Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: Obx(
+      //     () {
+      //       var selectedArticle = controller.selectedArticle.value;
+      //       return Wrap(
+      //       children: [
+      //         for (var article in controller.articles)
+      //           Padding(
+      //             padding: const EdgeInsets.all(8.0),
+      //             child: HyperlinkButton(
+      //               child: Text(
+      //                 describeEnum(article).toUpperCase(),
+      //                 style: TextStyle(
+      //                   fontSize: article == selectedArticle ? 18 : 16,
+      //                   fontWeight: article == selectedArticle ? FontWeight.bold : FontWeight.w500,
+      //                   letterSpacing: 2.5,
+      //                 ),
+      //               ),
+      //               onPressed: () {
+      //                 controller.handleSwitchArticle(article);
+      //               },
+      //             ),
+      //           )
+      //       ],
+      //     );
+      //     }
+      //   ),
+      // ),
       Obx(() {
         if (controller.showArticle.value) {
           return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  controller.articleDto.title,
-                  style:
-                      const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                ),
+              for (var i = 0; i< controller.articleDtoList.length; i++)
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      controller.articleDtoList[i].title,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  const Divider(),
+                  for (KhSectionDto section in controller.articleDtoList[i].article)
+                    KhArticleSectionItem(section),
+                  SizedBox(
+                      width: double.infinity,
+                      height: 300,
+                      child: Image.asset(
+                        controller.articles[i].imagePath(),
+                      ),),
+                ],
               ),
-              const Divider(),
-              for (KhSectionDto section in controller.articleDto.article)
-                KhArticleSectionItem(section),
             ],
           );
         } else {
           return const SizedBox.shrink();
         }
-      })
+      }),
     ];
   }
 

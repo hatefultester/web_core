@@ -33,7 +33,8 @@ class KhCreateDietaryPlanUseCase extends BaseUseCase<KhDietaryCreationRepository
         return Right(plan);
       } else {
         return Left(Failure(
-          infoMessage: failureDisplayMessage
+          infoMessage: failureDisplayMessage,
+          debugMessage: 'plan is not parsed correctly',
         ));
       }
     } on Exception catch (e) {

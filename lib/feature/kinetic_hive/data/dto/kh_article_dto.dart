@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'mock/kh_article_dto_mock_data.dart';
 
 class KhArticleDto {
   final String title;
@@ -12,7 +9,7 @@ class KhArticleDto {
     return KhArticleDto(
       title: json['title'],
       article: List<KhSectionDto>.from(
-          json['article'].map((section) => KhSectionDto.fromJson(section))),
+          json['article'].map((section) => KhSectionDto.fromJson(section),),),
     );
   }
 
@@ -21,10 +18,6 @@ class KhArticleDto {
       'title': title,
       'article': article.map((section) => section.toJson()).toList(),
     };
-  }
-
-  static KhArticleDto? fromMock() {
-    return KhArticleDto.fromJson(jsonDecode(mockArticleDto));
   }
 }
 
